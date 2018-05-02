@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FranchiseCollection>
+  <Franchises>
+    <Franchise>
+      <fIndex>21</fIndex>
+      <Name>Murica</Name>
+      <Genre>Americcan</Genre>
+    </Franchise>
+    <Franchise>
+      <fIndex>22</fIndex>
+      <Name>Sal's Pizza</Name>
+      <Genre>Italian</Genre>
+    </Franchise>
+  </Franchises>
+</FranchiseCollection>
+

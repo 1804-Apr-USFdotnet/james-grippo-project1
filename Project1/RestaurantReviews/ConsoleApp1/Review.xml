@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ReviewCollection>
+  <Reviews>
+    <Review>
+      <revIndex>1</revIndex>
+      <RestaurantID>1</RestaurantID>
+      <Reviewer>My Boi Michael</Reviewer>
+      <Description>Schwifty</Description>
+      <Rating>9</Rating>
+    </Review>
+    <Review>
+      <revIndex>2</revIndex>
+      <RestaurantID>1</RestaurantID>
+      <Reviewer>My Boi Frankie</Reviewer>
+      <Description>I donno Rick</Description>
+      <Rating>8</Rating>
+    </Review>
+    <Review>
+      <revIndex>3</revIndex>
+      <RestaurantID>1</RestaurantID>
+      <Reviewer>My Boi Jonny</Reviewer>
+      <Description>Wubbalubbadubdub!</Description>
+      <Rating>1</Rating>
+    </Review>
+    <Review>
+      <revIndex>4</revIndex>
+      <RestaurantID>1</RestaurantID>
+      <Reviewer>My Boi A A Ron</Reviewer>
+      <Description>"I turned myself into a pickle. I'm Pickle Riiiiick"</Description>
+      <Rating>10</Rating>
+    </Review>
+    <Review>
+      <revIndex>5</revIndex>
+      <RestaurantID>2</RestaurantID>
+      <Reviewer>My Boi Michael</Reviewer>
+      <Description>Schwifty</Description>
+      <Rating>8</Rating>
+    </Review>
+    <Review>
+      <revIndex>6</revIndex>
+      <RestaurantID>2</RestaurantID>
+      <Reviewer>My Boi Frankie</Reviewer>
+      <Description>I donno Rick</Description>
+      <Rating>7</Rating>
+    </Review>
+    <Review>
+      <revIndex>7</revIndex>
+      <RestaurantID>2</RestaurantID>
+      <Reviewer>My Boi Jonny</Reviewer>
+      <Description>Wubbalubbadubdub!</Description>
+      <Rating>2</Rating>
+    </Review>
+    <Review>
+      <revIndex>8</revIndex>
+      <RestaurantID>2</RestaurantID>
+      <Reviewer>My Boi A A Ron</Reviewer>
+      <Description>"I turned myself into a pickle. I'm Pickle Riiiiick"</Description>
+      <Rating>5</Rating>
+    </Review>
+    <Review>
+      <revIndex>9</revIndex>
+      <RestaurantID>3</RestaurantID>
+      <Reviewer>My Boi Michael</Reviewer>
+      <Description>Schwifty</Description>
+      <Rating>9</Rating>
+    </Review>
+    <Review>
+      <revIndex>10</revIndex>
+      <RestaurantID>3</RestaurantID>
+      <Reviewer>My Boi Frankie</Reviewer>
+      <Description>I donno Rick</Description>
+      <Rating>9</Rating>
+    </Review>
+    <Review>
+      <revIndex>11</revIndex>
+      <RestaurantID>3</RestaurantID>
+      <Reviewer>My Boi Jonny</Reviewer>
+      <Description>Wubbalubbadubdub!</Description>
+      <Rating>9</Rating>
+    </Review>
+    <Review>
+      <revIndex>12</revIndex>
+      <RestaurantID>3</RestaurantID>
+      <Reviewer>My Boi A A Ron</Reviewer>
+      <Description>"I turned myself into a pickle. I'm Pickle Riiiiick"</Description>
+      <Rating>9</Rating>
+    </Review>
+    <Review>
+      <revIndex>13</revIndex>
+      <RestaurantID>4</RestaurantID>
+      <Reviewer>My Boi Michael</Reviewer>
+      <Description>Schwifty</Description>
+      <Rating>10</Rating>
+    </Review>
+    <Review>
+      <revIndex>14</revIndex>
+      <RestaurantID>4</RestaurantID>
+      <Reviewer>My Boi Frankie</Reviewer>
+      <Description>I donno Rick</Description>
+      <Rating>10</Rating>
+    </Review>
+    <Review>
+      <revIndex>15</revIndex>
+      <RestaurantID>4</RestaurantID>
+      <Reviewer>My Boi Jonny</Reviewer>
+      <Description>Wubbalubbadubdub!</Description>
+      <Rating>10</Rating>
+    </Review>
+    <Review>
+      <revIndex>16</revIndex>
+      <RestaurantID>4</RestaurantID>
+      <Reviewer>My Boi A A Ron</Reviewer>
+      <Description>"I turned myself into a pickle. I'm Pickle Riiiiick"</Description>
+      <Rating>10</Rating>
+    </Review>
+  </Reviews>
+</ReviewCollection>
