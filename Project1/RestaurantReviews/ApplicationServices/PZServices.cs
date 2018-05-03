@@ -10,7 +10,7 @@ using PZServices;
 
 namespace ApplicationServices
 {
-    public class PZServices
+    public class PZServices : IPZService
     {
         private readonly PZRepoContext _db;
         private readonly RestaurantService _restaurantService;

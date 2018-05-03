@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using PZModels;
+
+namespace ApplicationServices
+{
+    interface IPZService
+    {
+        List<Restaurant> GetAllRestaurants();
+        List<Review> GetAllReviewsForRestaurant(string restaurant);
+        void UpdateAverageRating();
+        List<Restaurant> GetTopThreeRestaurants();
+        List<Restaurant> GetRestaurantsByOrder(string order);
+        List<Restaurant> GetRestaurantBySearch(string search);
+
+    }
+}
