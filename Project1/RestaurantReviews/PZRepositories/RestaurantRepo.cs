@@ -38,6 +38,12 @@ namespace PZRepositories
             _pzRepoContext.SaveChanges();
         }
 
+        public void Remove(Restaurant restaurant)
+        {
+            _pzRepoContext.Restaurants.Remove(restaurant);
+            _pzRepoContext.SaveChanges();
+        }
+
         public void UpdateRestaurants()
         {
             _pzRepoContext.SaveChanges();

@@ -11,5 +11,6 @@ namespace PZRepositoryInterface
         IEnumerable<Restaurant> GetAll();
         void Add(Restaurant restaurant);
         void UpdateRestaurants();
+        void Remove(Restaurant restaurant);
     }
 }

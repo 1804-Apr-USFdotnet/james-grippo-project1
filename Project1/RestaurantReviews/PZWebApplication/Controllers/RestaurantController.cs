@@ -42,5 +42,26 @@ namespace PZWebApplication.Controllers
                 return View();
             }
         }
+
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST: Restaurants/Delete/5
+        [HttpPost]
+        public ActionResult Delete(Restaurant restaurant)
+        {
+            try
+            {
+                applicationServices.RemoveRestaurant(restaurant);
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }

@@ -18,5 +18,6 @@ namespace ApplicationServices
         List<Restaurant> GetRestaurantsByOrder(string order);
         List<Restaurant> GetRestaurantBySearch(string search);
         void AddRestaurant(Restaurant restaurant);
+        void RemoveRestaurant(Restaurant restaurant);
     }
 }
