@@ -75,9 +75,10 @@ namespace ApplicationServices
             _restaurantService.AddRestaurant(restaurant);
         }
 
-        public void RemoveRestaurant(Restaurant restaurant)
+        public void RemoveRestaurant(int id)
         {
-            _restaurantService.RemoveRestaurant(restaurant);
+            Restaurant r = GetRestaurantById(id);
+            _restaurantService.RemoveRestaurant(r);
         }
     }
 }

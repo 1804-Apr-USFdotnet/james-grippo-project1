@@ -19,7 +19,7 @@ namespace PZWebApplication
                 defaults: new
                 {
                     controller = "Restaurants",
-                    action = "Create",
+                    action = "Index",
                     id = UrlParameter.Optional
                 }
             );

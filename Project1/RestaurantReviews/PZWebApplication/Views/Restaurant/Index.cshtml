@@ -1,4 +1,5 @@
-﻿@model IEnumerable<PZModels.Restaurant>
+﻿@using PZModels
+@model IEnumerable<PZModels.Restaurant>
 
 <!DOCTYPE html>
 <html>
@@ -21,6 +22,7 @@
             <tr style="border:2px solid black">
                 <td>@rest.ToString()</td>
                 <td>@Html.ActionLink("Details", "Details", new { id = rest.rIndex })</td>
+                <td>@Html.ActionLink("Delete", "Delete", new {id = rest.rIndex})</td>
             </tr>
         }
         </tbody>
