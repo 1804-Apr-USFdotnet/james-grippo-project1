@@ -19,5 +19,6 @@ namespace ApplicationServices
         List<Restaurant> GetRestaurantBySearch(string search);
         void AddRestaurant(Restaurant restaurant);
         void RemoveRestaurant(int id);
+        void UpdateRestaurant(Restaurant restaurant);
     }
 }

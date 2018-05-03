@@ -1,0 +1,39 @@
+﻿@model PZModels.Restaurant
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(@Model => @Model.rIndex)
+
+        @Html.LabelFor(Model => Model.Name);
+        @Html.EditorFor(Model => Model.Name, new { htmlattributes = new { placeholder = "Name", required = "required" } })<br />
+        @Html.ValidationMessageFor(Model => Model.Name)
+
+        @Html.LabelFor(Model => Model.FranchiseID);
+        @Html.EditorFor(Model => Model.FranchiseID, new { htmlattributes = new { placeholder = "FranchiseID", required = "required" } })<br />
+
+        @Html.LabelFor(Model => Model.City);
+        @Html.EditorFor(Model => Model.City, new { htmlattributes = new { placeholder = "City", required = "required" } }) <br />
+
+        @Html.LabelFor(Model => Model.Address);
+        @Html.EditorFor(Model => Model.Address, new { htmlattributes = new { placeholder = "Address", required = "required" } })<br />
+
+        @Html.LabelFor(Model => Model.State);
+        @Html.EditorFor(Model => Model.State, new { htmlattributes = new { placeholder = "State", required = "required" } })<br />
+
+        @Html.LabelFor(Model => Model.Zipcode);
+        @Html.EditorFor(Model => Model.Zipcode, new { htmlattributes = new { placeholder = "Zipcode", required = "required" } })<br />
+        <input type="submit" value="Edit" />
+    }
+    <div>
+
+    </div>
+</body>
+</html>

@@ -56,5 +56,25 @@ namespace PZWebApplication.Controllers
                 return View("Index");
             }
         }
+
+        public ActionResult Edit(int id)
+        {
+            return View(applicationServices.GetRestaurantById(id));
+        }
+
+        // POST: Restaurants/Edit/5
+        [HttpPost]
+        public ActionResult Edit(Restaurant restaurant)
+        {
+            try
+            {
+                applicationServices.UpdateRestaurant(restaurant);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return RedirectToAction("Index");
+            }
+        }
     }
 }

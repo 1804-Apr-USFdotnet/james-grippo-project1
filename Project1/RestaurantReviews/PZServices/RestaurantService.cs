@@ -74,5 +74,10 @@ namespace PZServices
         {
             _restaurantRepo.Remove(restaurant);
         }
+
+        public void UpdateRestaurant(Restaurant restaurant)
+        {
+            _restaurantRepo.Update(restaurant);
+        }
     }
 }

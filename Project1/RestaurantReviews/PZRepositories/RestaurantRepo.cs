@@ -5,14 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using PZModels;
 using PZRepositoryInterface;
+using System.Data.Entity;
 
 namespace PZRepositories
 {
     public class RestaurantRepo : IRestaurantRepo
     {
-        private readonly IPZRepoContext _pzRepoContext;
+        private readonly PZRepoContext _pzRepoContext;
 
-        public RestaurantRepo(IPZRepoContext context)
+        public RestaurantRepo(PZRepoContext context)
         {
             _pzRepoContext = context;
         }
@@ -44,8 +45,10 @@ namespace PZRepositories
             _pzRepoContext.SaveChanges();
         }
 
-        public void UpdateRestaurants()
+        public void Update(Restaurant restaurant)
         {
+            var r = _pzRepoContext.Restaurants.Find(restaurant.rIndex);
+            _pzRepoContext.Entry(r).CurrentValues.SetValues(restaurant); 
             _pzRepoContext.SaveChanges();
         }
     }

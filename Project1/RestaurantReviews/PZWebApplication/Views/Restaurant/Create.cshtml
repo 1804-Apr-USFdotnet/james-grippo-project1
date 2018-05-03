@@ -8,11 +8,6 @@
     <title>Create</title>
 </head>
 <body>
-@*<form method="post" action="~/Restaurants/Create">
-            Name: <input type="text" id="name" name="name" />
-            Address: <input type="text" id="<address></address>" name="address" />
-            <input type="submit"  />
-        </form>*@
 @using (Html.BeginForm())
 {
     @Html.LabelFor(Model => Model.Name);
