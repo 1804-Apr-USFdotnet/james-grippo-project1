@@ -1,0 +1,44 @@
+﻿@model PZModels.Restaurant
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+@*<form method="post" action="~/Restaurants/Create">
+            Name: <input type="text" id="name" name="name" />
+            Address: <input type="text" id="<address></address>" name="address" />
+            <input type="submit"  />
+        </form>*@
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(Model => Model.Name);
+    @Html.EditorFor(Model => Model.Name, new { htmlattributes = new { placeholder = "Enter Name", required = "required" } })<br />
+    @Html.ValidationMessageFor(Model=>Model.Name)
+
+    @Html.LabelFor(Model => Model.FranchiseID);
+    @Html.EditorFor(Model => Model.FranchiseID)<br />
+
+    @Html.LabelFor(Model => Model.City);
+    @Html.EditorFor(Model => Model.City) <br />
+
+    @Html.LabelFor(Model => Model.Address);
+    @Html.EditorFor(Model => Model.Address)<br />
+
+    @Html.LabelFor(Model => Model.State);
+    @Html.EditorFor(Model => Model.State)<br />
+
+    @Html.LabelFor(Model => Model.Zipcode);
+    @Html.EditorFor(Model => Model.Zipcode)<br />
+
+
+    <input type="submit" value="Add" />
+}
+<div>
+
+</div>
+</body>
+</html>

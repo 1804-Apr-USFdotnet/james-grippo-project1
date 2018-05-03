@@ -21,12 +21,22 @@ namespace ApplicationServices
             _db = new PZRepoContext();
             _restaurantService = new RestaurantService(new RestaurantRepo(_db));
             _reviewService = new ReviewService(new ReviewRepo(_db));
-            UpdateAverageRating();
+            //UpdateAverageRating();
         }
 
         public List<Restaurant> GetAllRestaurants()
         {
             return _restaurantService.AllRestaurants();
+        }
+
+        public Restaurant GetRestaurantById(int id)
+        {
+            return _restaurantService.RestaurantById(id);
+        }
+
+        public Restaurant GetRestaurantByName(string name)
+        {
+            return _restaurantService.RestaurantByName(name);
         }
 
         public List<Review> GetAllReviewsForRestaurant(string restaurant)
@@ -58,6 +68,11 @@ namespace ApplicationServices
         public List<Restaurant> GetRestaurantBySearch(string search)
         {
             return _restaurantService.SearchRestaurants(search);
+        }
+
+        public void AddRestaurant(Restaurant restaurant)
+        {
+            _restaurantService.AddRestaurant(restaurant);
         }
     }
 }
