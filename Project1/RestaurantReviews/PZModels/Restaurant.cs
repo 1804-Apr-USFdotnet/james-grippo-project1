@@ -30,8 +30,8 @@ namespace PZModels
         [XmlElement("Zipcode")]
         public string Zipcode { get; set; }
 
-        [Required(ErrorMessage = "Zipcode is required.")]
-        [DataType(DataType.PostalCode, ErrorMessage = "Please enter a valid postal code.")]
+        [Required(ErrorMessage = "State is required.")]
+        [StringLength(2, ErrorMessage = "State should be 2 characters.")]
         [XmlElement("State")]
         public string State { get; set; }
 
