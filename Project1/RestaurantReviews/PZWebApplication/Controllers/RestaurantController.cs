@@ -1,81 +1,88 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ApplicationServices;
-using PZModels;
 
 namespace PZWebApplication.Controllers
 {
     public class RestaurantController : Controller
     {
-        private readonly PZServices applicationServices = new PZServices();
+        // GET: Restaurant
         public ActionResult Index()
         {
-            return View(applicationServices.GetAllRestaurants());
+            return View();
         }
 
+        // GET: Restaurant/Details/5
         public ActionResult Details(int id)
         {
-            return View(applicationServices.GetRestaurantById(id));
+            return View();
         }
 
+        // GET: Restaurant/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Restaurants/Create
+        // POST: Restaurant/Create
         [HttpPost]
-        public ActionResult Create(Restaurant restaurant)
+        public ActionResult Create(FormCollection collection)
         {
             try
             {
-                applicationServices.AddRestaurant(restaurant);
-                // log that it worked
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                Debug.WriteLine("Not Working.");
-                // log some problem
-                return RedirectToAction("Index");
-            }
-        }
-
-        public ActionResult Delete(int id)
-        {
-            try
-            {
-                applicationServices.RemoveRestaurant(id);
+                // TODO: Add insert logic here
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View("Index");
+                return View();
             }
         }
 
+        // GET: Restaurant/Edit/5
         public ActionResult Edit(int id)
         {
-            return View(applicationServices.GetRestaurantById(id));
+            return View();
         }
 
-        // POST: Restaurants/Edit/5
+        // POST: Restaurant/Edit/5
         [HttpPost]
-        public ActionResult Edit(Restaurant restaurant)
+        public ActionResult Edit(int id, FormCollection collection)
         {
             try
             {
-                applicationServices.UpdateRestaurant(restaurant);
+                // TODO: Add update logic here
+
                 return RedirectToAction("Index");
             }
             catch
             {
+                return View();
+            }
+        }
+
+        // GET: Restaurant/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST: Restaurant/Delete/5
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+
                 return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
             }
         }
     }
