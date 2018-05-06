@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,7 +11,7 @@ namespace PZWebApplication.Controllers
 {
     public class RestaurantController : Controller
     {
-        private PZServices applicationServices = new PZServices();
+        private readonly PZServices applicationServices = new PZServices();
         public ActionResult Index()
         {
             return View(applicationServices.GetAllRestaurants());
@@ -38,8 +39,9 @@ namespace PZWebApplication.Controllers
             }
             catch
             {
+                Debug.WriteLine("Not Working.");
                 // log some problem
-                return View();
+                return RedirectToAction("Index");
             }
         }
 

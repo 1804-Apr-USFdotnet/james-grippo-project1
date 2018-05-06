@@ -10,6 +10,7 @@ namespace PZRepositoryInterface
         Review GetById(int id);
         IEnumerable<Review> GetAll();
         void Add(Review review);
-        void UpdateReviews();
+        void Remove(Review review);
+        void Update(Review review);
     }
 }

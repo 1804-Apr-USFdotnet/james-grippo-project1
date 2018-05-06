@@ -8,8 +8,10 @@ namespace PZRepositoryInterface
     public interface IFranchiseRepo
     {
         Franchise GetById(int id);
+        Franchise GetByName(string franchise);
         IEnumerable<Franchise> GetAll();
         void Add(Franchise franchise);
-        void UpdateFranchises();
+        void Remove(Franchise franchise);
+        void Update(Franchise franchise);
     }
 }

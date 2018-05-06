@@ -8,26 +8,27 @@
     <title>Index</title>
 </head>
 <body>
-<div>
-    <table style="border:2px solid; border-collapse:collapse">
-        <thead>
-        <tr>
-            <th>Name </th>
-            <th>Address </th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach (var rest in Model)
-        {
-            <tr style="border:2px solid black">
-                <td>@rest.ToString()</td>
-                <td>@Html.ActionLink("Details", "Details", new { id = rest.rIndex })</td>
-                <td>@Html.ActionLink("Delete", "Delete", new {id = rest.rIndex})</td>
-                <td>@Html.ActionLink("Edit", "Edit", new {id = rest.rIndex})</td>
-            </tr>
+    <div>
+        <table style="border:2px solid; border-collapse:collapse">
+            <thead>
+                <tr>
+                    <th>Name </th>
+                    <th>Address </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var rest in Model)
+            {
+                <tr style="border:2px solid black">
+                    <td>@rest.Address()</td>
+                    <td>@Html.ActionLink("Details", "Details", new { id = rest.RestaurantId })</td>
+                    <td>@Html.ActionLink("Delete", "Delete", new { id = rest.RestaurantId })</td>
+                    <td>@Html.ActionLink("Edit", "Edit", new { id = rest.RestaurantId })</td>
+                </tr>
         }
-        </tbody>
-    </table>
-</div>
+            </tbody>
+        </table>
+        @Html.ActionLink("Create", "Create", null, htmlAttributes: new { @class = "btn btn-secondary btn-block p-1 m-1" })
+    </div>
 </body>
 </html>
