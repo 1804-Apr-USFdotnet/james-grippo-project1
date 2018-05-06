@@ -47,8 +47,12 @@ namespace PZRepositories
 
         public void Update(Restaurant restaurant)
         {
-            var r = _pzRepoContext.Restaurants.Find(restaurant.RestaurantId);
-            _pzRepoContext.Entry(r).CurrentValues.SetValues(restaurant); 
+            _pzRepoContext.Entry(restaurant).CurrentValues.SetValues(restaurant); 
+            _pzRepoContext.SaveChanges();
+        }
+
+        public void Update()
+        {
             _pzRepoContext.SaveChanges();
         }
     }

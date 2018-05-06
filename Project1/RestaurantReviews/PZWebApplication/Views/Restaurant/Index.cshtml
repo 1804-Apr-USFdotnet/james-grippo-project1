@@ -24,6 +24,7 @@
                     <td>@Html.ActionLink("Details", "Details", new { id = rest.RestaurantId })</td>
                     <td>@Html.ActionLink("Delete", "Delete", new { id = rest.RestaurantId })</td>
                     <td>@Html.ActionLink("Edit", "Edit", new { id = rest.RestaurantId })</td>
+                    <td>@Html.ActionLink("Reviews", "Index", "Review", new {id = rest.RestaurantId}, null)</td>
                 </tr>
         }
             </tbody>

@@ -12,5 +12,6 @@ namespace PZRepositoryInterface
         void Add(Restaurant restaurant);
         void Remove(Restaurant restaurant);
         void Update(Restaurant restaurant);
+        void Update();
     }
 }

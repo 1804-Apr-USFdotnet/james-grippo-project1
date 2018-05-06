@@ -15,5 +15,6 @@ namespace IPZServices
         void AddRestaurant(Restaurant restaurant);
         void RemoveRestaurant(Restaurant restaurant);
         void UpdateRestaurant(Restaurant restaurant);
+        void UpdateContext();
     }
 }

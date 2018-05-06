@@ -61,7 +61,7 @@ namespace ApplicationServices
             foreach (Restaurant r in restList)
             {
                 List<Review> restReviews = _reviewService.ReviewsByRestaurantId(r.RestaurantId);
-                r.CalcAvgRating(restReviews);
+                r.CalcAvgRating();
             }
         }
 
@@ -98,7 +98,13 @@ namespace ApplicationServices
 
         public void AddReview(Review review)
         {
-            Restaurant restaurant = review.Restaurant;
+            Restaurant restaurant = GetRestaurantById(review.RestaurantId);
+            review.Restaurant = restaurant;
+            _reviewService.AddReview(review);
+
+            restaurant.Reviews.Add(review);
+            restaurant.CalcAvgRating();
+            _restaurantService.UpdateContext();
         }
 
         public void RemoveReview(int id)

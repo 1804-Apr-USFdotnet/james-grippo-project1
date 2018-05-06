@@ -32,6 +32,30 @@ namespace PZRepositories
             //foreach (Review r in reviews)
             //    context.Reviews.Add(r);
 
+            Review review = new Review()
+            {
+                Rating = 5,
+                Description = "Schwiftyyyyy!",
+                Reviewer = "Lil' Bobby",
+                RestaurantId = 1
+            };
+
+            Restaurant restaurant = new Restaurant
+            {
+                City = "City1",
+                Name = "Bobby Big Burgers",
+                State = "NY",
+                Zipcode = "10801",
+                Street = "1 Bobby place",
+                Reviews = new List<Review>
+                {
+                    review
+                }
+            };
+            review.Restaurant = restaurant;
+            context.Restaurants.Add(restaurant);
+            context.Reviews.Add(review);
+
             base.Seed(context);
             context.SaveChanges();
         }

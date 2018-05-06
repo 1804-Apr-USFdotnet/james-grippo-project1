@@ -79,5 +79,10 @@ namespace PZServices
         {
             _restaurantRepo.Update(restaurant);
         }
+
+        public void UpdateContext()
+        {
+            _restaurantRepo.Update();
+        }
     }
 }

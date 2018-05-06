@@ -57,9 +57,9 @@ namespace PZModels
                 return $"{Name}:  {Street}, {City}, {State}, {Zipcode}";
         }
 
-        public void CalcAvgRating(IEnumerable<Review> reviews)
+        public void CalcAvgRating()
         {
-            AvgRating = Math.Round(reviews.Select(x => x.Rating).Average(), 2);    
+            AvgRating = Math.Round(Reviews.Select(x => x.Rating).Average(), 2);    
         }
     }
 }
