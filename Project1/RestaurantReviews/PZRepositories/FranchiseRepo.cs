@@ -18,12 +18,7 @@ namespace PZRepositories
         }
         public Franchise GetById(int id)
         {
-            return _pzRepoContext.Franchises.First(x => x.FranchiseId == id);
-        }
-
-        public Franchise GetByName(string franchise)
-        {
-            return _pzRepoContext.Franchises.First(x => x.Name == franchise);
+            return _pzRepoContext.Franchises.First(x => x.fIndex == id);
         }
 
         public IEnumerable<Franchise> GetAll()
@@ -38,16 +33,8 @@ namespace PZRepositories
             _pzRepoContext.SaveChanges();
         }
 
-        public void Remove(Franchise franchise)
+        public void UpdateFranchises()
         {
-            _pzRepoContext.Franchises.Remove(franchise);
-            _pzRepoContext.SaveChanges();
-        }
-
-        public void Update(Franchise franchise)
-        {
-            var r = _pzRepoContext.Franchises.Find(franchise.FranchiseId);
-            _pzRepoContext.Entry(r).CurrentValues.SetValues(franchise);
             _pzRepoContext.SaveChanges();
         }
     }

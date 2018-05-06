@@ -29,19 +29,9 @@ namespace ApplicationServices
             return _restaurantService.AllRestaurants();
         }
 
-        public List<Review> GetAllReviews()
-        {
-            return _reviewService.AllReviews();
-        }
-
         public Restaurant GetRestaurantById(int id)
         {
             return _restaurantService.RestaurantById(id);
-        }
-
-        public Review GetReviewByID(int id)
-        {
-            return _reviewService.ReviewById(id);
         }
 
         public Restaurant GetRestaurantByName(string name)
@@ -52,7 +42,7 @@ namespace ApplicationServices
         public List<Review> GetAllReviewsForRestaurant(string restaurant)
         {
             var r = _restaurantService.RestaurantByName(restaurant);
-            return _reviewService.ReviewsByRestaurantId(r.RestaurantId);
+            return _reviewService.ReviewsByRestaurantId(r.rIndex);
         }
 
         public void UpdateAverageRating()
@@ -60,7 +50,7 @@ namespace ApplicationServices
             List<Restaurant> restList = GetAllRestaurants();
             foreach (Restaurant r in restList)
             {
-                List<Review> restReviews = _reviewService.ReviewsByRestaurantId(r.RestaurantId);
+                List<Review> restReviews = _reviewService.ReviewsByRestaurantId(r.rIndex);
                 r.CalcAvgRating(restReviews);
             }
         }
@@ -94,22 +84,6 @@ namespace ApplicationServices
         public void UpdateRestaurant(Restaurant restaurant)
         {
             _restaurantService.UpdateRestaurant(restaurant);
-        }
-
-        public void AddReview(Review review)
-        {
-            Restaurant restaurant = review.Restaurant;
-        }
-
-        public void RemoveReview(int id)
-        {
-            Review r = GetReviewByID(id);
-            _reviewService.RemoveReview(r);
-        }
-
-        public void UpdateReview(Review review)
-        {
-            _reviewService.UpdateReview(review);
         }
     }
 }

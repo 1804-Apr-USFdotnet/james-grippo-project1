@@ -9,6 +9,7 @@ namespace PZWebApplication.Controllers
     public class RestaurantController : Controller
     {
         // GET: Restaurant
+        private PZServices applicationServices = new PZServices();
         public ActionResult Index()
         {
             return View();

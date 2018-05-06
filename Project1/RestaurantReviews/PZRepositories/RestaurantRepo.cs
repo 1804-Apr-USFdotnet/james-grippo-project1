@@ -20,7 +20,7 @@ namespace PZRepositories
 
         public Restaurant GetById(int id)
         {
-            return _pzRepoContext.Restaurants.First(x => x.RestaurantId == id);
+            return _pzRepoContext.Restaurants.First(x => x.rIndex == id);
         }
 
         public Restaurant GetByName(string restaurant)
@@ -47,7 +47,7 @@ namespace PZRepositories
 
         public void Update(Restaurant restaurant)
         {
-            var r = _pzRepoContext.Restaurants.Find(restaurant.RestaurantId);
+            var r = _pzRepoContext.Restaurants.Find(restaurant.rIndex);
             _pzRepoContext.Entry(r).CurrentValues.SetValues(restaurant); 
             _pzRepoContext.SaveChanges();
         }

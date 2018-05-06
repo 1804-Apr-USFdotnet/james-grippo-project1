@@ -10,7 +10,6 @@ namespace ApplicationServices
     interface IPZService
     {
         List<Restaurant> GetAllRestaurants();
-        List<Review> GetAllReviews();
         Restaurant GetRestaurantById(int id);
         Restaurant GetRestaurantByName(string name);
         List<Review> GetAllReviewsForRestaurant(string restaurant);
@@ -21,8 +20,5 @@ namespace ApplicationServices
         void AddRestaurant(Restaurant restaurant);
         void RemoveRestaurant(int id);
         void UpdateRestaurant(Restaurant restaurant);
-        void AddReview(Review review);
-        void RemoveReview(int id);
-        void UpdateReview(Review review);
     }
 }

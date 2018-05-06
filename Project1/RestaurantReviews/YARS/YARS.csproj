@@ -46,6 +46,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -202,6 +208,32 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ApplicationServices\ApplicationServices.csproj">
+      <Project>{5d4e904a-4323-4dcc-9c07-4e6d1c00feb7}</Project>
+      <Name>ApplicationServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IPZServices\IPZServices.csproj">
+      <Project>{0ed58a0f-f4df-436f-b435-3789f0a78f98}</Project>
+      <Name>IPZServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PZModels\PZModels.csproj">
+      <Project>{872c9a72-9017-4535-9d09-15b7a2084292}</Project>
+      <Name>PZModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PZRepositories\PZRepositories.csproj">
+      <Project>{0a4af450-cd7b-4a21-9623-d320c43b507d}</Project>
+      <Name>PZRepositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PZRepositoryInterface\PZRepositoryInterface.csproj">
+      <Project>{feadc998-84e0-4c1d-bb83-33a7a1eb787f}</Project>
+      <Name>PZRepositoryInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PZServices\PZServices.csproj">
+      <Project>{308f0ae1-3879-4e3f-8a4a-8d745a140d55}</Project>
+      <Name>PZServices</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

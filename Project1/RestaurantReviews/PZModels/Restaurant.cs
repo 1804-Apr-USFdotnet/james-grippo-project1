@@ -44,17 +44,20 @@ namespace PZModels
         [Range(1,10, ErrorMessage = "Rating must be between 1 and 10.")]
         public double? AvgRating  { get; set; }
 
+        public int FranchiseId { get; set; }
+
+        public virtual Franchise Franchise { get; set; }
         public virtual ICollection<Review> Reviews { get; set; }
 
         public override string ToString()
         {
             return
-                $"\nindex: {RestaurantId}\nname: {Name} \ncity: {City}\nZip: {Zipcode}\nstate: {State}\naddress: {Street}\naverage rating: {AvgRating}\n";
+                $"\nindex: {RestaurantId}\nfIndex: {FranchiseId}\nname: {Name} \ncity: {City}\nZip: {Zipcode}\nstate: {State}\naddress: {Street}\naverage rating: {AvgRating}\n";
         }
 
         public string Address()
         {
-                return $"{Name}:  {Street}, {City}, {State}, {Zipcode}";
+                return $" {Street}, {City}, {State}, {Zipcode}";
         }
 
         public void CalcAvgRating(IEnumerable<Review> reviews)
