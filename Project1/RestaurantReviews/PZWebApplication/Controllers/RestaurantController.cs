@@ -11,12 +11,7 @@ namespace PZWebApplication.Controllers
 {
     public class RestaurantController : Controller
     {
-<<<<<<< HEAD
-        // GET: Restaurant
-        private PZServices applicationServices = new PZServices();
-=======
         private readonly PZServices applicationServices = new PZServices();
->>>>>>> parent of 0c3701b... New Web UI
         public ActionResult Index()
         {
             return View(applicationServices.GetAllRestaurants());
@@ -46,7 +41,7 @@ namespace PZWebApplication.Controllers
             {
                 Debug.WriteLine("Not Working.");
                 // log some problem
-                return RedirectToAction("Index");
+                return View();
             }
         }
 

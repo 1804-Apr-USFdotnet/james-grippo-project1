@@ -42,7 +42,7 @@ namespace ApplicationServices
         public List<Review> GetAllReviewsForRestaurant(string restaurant)
         {
             var r = _restaurantService.RestaurantByName(restaurant);
-            return _reviewService.ReviewsByRestaurantId(r.rIndex);
+            return _reviewService.ReviewsByRestaurantId(r.RestaurantId);
         }
 
         public void UpdateAverageRating()
@@ -50,7 +50,7 @@ namespace ApplicationServices
             List<Restaurant> restList = GetAllRestaurants();
             foreach (Restaurant r in restList)
             {
-                List<Review> restReviews = _reviewService.ReviewsByRestaurantId(r.rIndex);
+                List<Review> restReviews = _reviewService.ReviewsByRestaurantId(r.RestaurantId);
                 r.CalcAvgRating(restReviews);
             }
         }

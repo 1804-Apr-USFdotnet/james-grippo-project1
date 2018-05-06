@@ -18,7 +18,7 @@ namespace PZRepositories
         }
         public Review GetById(int id)
         {
-            return _pzRepoContext.Reviews.First(x => x.revIndex == id);
+            return _pzRepoContext.Reviews.First(x => x.ReviewId == id);
         }
 
         public IEnumerable<Review> GetAll()

@@ -29,7 +29,7 @@ namespace PZServices
 
         public List<Review> ReviewsByRestaurantId(int id)
         {
-            IEnumerable<Review> query = _pzReviewRepo.GetAll().Where(x => x.RestaurantID == id);
+            IEnumerable<Review> query = _pzReviewRepo.GetAll().Where(x => x.RestaurantId == id);
             return query.ToList();
         }
 
