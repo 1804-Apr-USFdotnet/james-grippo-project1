@@ -15,14 +15,14 @@ namespace Yarr.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Yarr stands for Yet Another Restaurant Reviewer.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Do not contact me with unsolicited services or offers.";
 
             return View();
         }

@@ -62,9 +62,16 @@ namespace Yarr.Controllers
         {
             try
             {
-                applicationServices.AddRestaurant(restaurant);
-                // log that it worked
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    applicationServices.AddRestaurant(restaurant);
+                    // log that it worked
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return HttpNotFound();
+                }
             }
             catch
             {
@@ -74,6 +81,7 @@ namespace Yarr.Controllers
             }
         }
 
+        //[Authorize("Admin")]
         public ActionResult Delete(int id)
         {
             try
@@ -99,11 +107,17 @@ namespace Yarr.Controllers
         {
             try
             {
-                restaurant.Reviews = applicationServices.GetRestaurantById(restaurant.RestaurantId).Reviews;
-                applicationServices.UpdateAverageRating(restaurant);
-                applicationServices.UpdateRestaurant(restaurant);
+                if (ModelState.IsValid)
+                {
+                    restaurant.Reviews = applicationServices.GetRestaurantById(restaurant.RestaurantId).Reviews;
+                    applicationServices.UpdateAverageRating(restaurant);
+                    applicationServices.UpdateRestaurant(restaurant);
 
-                return RedirectToAction("Index");
+                    return RedirectToAction("Index");
+                }
+                else
+                    return HttpNotFound();
+
             }
             catch
             {
