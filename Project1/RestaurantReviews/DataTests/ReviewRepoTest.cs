@@ -26,31 +26,31 @@ namespace DataTests
             _moqContext.Setup(m => m.Reviews).Returns(_moqSet.Object);
         }
 
-        [TestMethod]
-        public void Add_PassedAReview_CallsReviewRepoAdd()
-        {
-            var service = new ReviewRepo(_moqContext.Object);
-            service.Add(r);
+        //[TestMethod]
+        //public void Add_PassedAReview_CallsReviewRepoAdd()
+        //{
+        //    var service = new ReviewRepo(_moqContext.Object);
+        //    service.Add(r);
 
-            _moqSet.Verify(m => m.Add(It.IsAny<Review>()), Times.Once);
-        }
+        //    _moqSet.Verify(m => m.Add(It.IsAny<Review>()), Times.Once);
+        //}
 
-        [TestMethod]
-        public void Add_PassedAReview_CallsContextSaveChanges()
-        {
-            var service = new ReviewRepo(_moqContext.Object);
-            service.Add(r);
+        //[TestMethod]
+        //public void Add_PassedAReview_CallsContextSaveChanges()
+        //{
+        //    var service = new ReviewRepo(_moqContext.Object);
+        //    service.Add(r);
 
-            _moqContext.Verify(m => m.SaveChanges(), Times.Once);
-        }
+        //    _moqContext.Verify(m => m.SaveChanges(), Times.Once);
+        //}
 
-        [TestMethod]
-        public void GetAll_AssertReturnType()
-        {
-            var service = new ReviewRepo(_moqContext.Object);
-            var restById = service.GetAll();
+        //[TestMethod]
+        //public void GetAll_AssertReturnType()
+        //{
+        //    var service = new ReviewRepo(_moqContext.Object);
+        //    var restById = service.GetAll();
 
-            Assert.IsInstanceOfType(restById, typeof(IEnumerable<Review>));
-        }
+        //    Assert.IsInstanceOfType(restById, typeof(IEnumerable<Review>));
+        //}
     }
 }

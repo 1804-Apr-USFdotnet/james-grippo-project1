@@ -8,7 +8,12 @@ namespace IPZServices
     public interface IFranchiseService
     {
         List<Franchise> AllFranchises();
-        List<Franchise> FranchiseById();
-        List<Franchise> GetGenre();
+        Franchise FranchiseById(int id);
+        Franchise FranchiseByName(string name);
+        List<Franchise> GetByGenre(string genre);
+        List<Franchise> SearchFranchises(string search);
+        void AddFranchise(Franchise franchise);
+        void RemoveFranchise(Franchise franchise);
+        void UpdateFranchise(Franchise franchise);
     }
 }

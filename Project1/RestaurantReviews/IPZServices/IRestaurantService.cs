@@ -13,6 +13,8 @@ namespace IPZServices
         List<Restaurant> GetRestaurantsByOrder(string order);
         List<Restaurant> SearchRestaurants(string search);
         void AddRestaurant(Restaurant restaurant);
-
+        void RemoveRestaurant(Restaurant restaurant);
+        void UpdateRestaurant(Restaurant restaurant);
+        void UpdateContext();
     }
 }

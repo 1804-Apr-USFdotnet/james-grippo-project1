@@ -53,7 +53,7 @@ namespace PZServices
                 case "state":
                     return query.OrderBy(x => x.State).ToList();
                 case "address":
-                    return query.OrderBy(x => x.Address).ToList();
+                    return query.OrderBy(x => x.Street).ToList();
                 default:
                     return new List<Restaurant>();
             }
@@ -68,6 +68,21 @@ namespace PZServices
         public void AddRestaurant(Restaurant restaurant)
         {
             _restaurantRepo.Add(restaurant);
+        }
+
+        public void RemoveRestaurant(Restaurant restaurant)
+        {
+            _restaurantRepo.Remove(restaurant);
+        }
+
+        public void UpdateRestaurant(Restaurant restaurant)
+        {
+            _restaurantRepo.Update(restaurant);
+        }
+
+        public void UpdateContext()
+        {
+            _restaurantRepo.Update();
         }
     }
 }

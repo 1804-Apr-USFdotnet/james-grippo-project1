@@ -10,15 +10,15 @@ namespace PZRepositories
 {
     public class ReviewRepo : IReviewRepo
     {
-        private readonly IPZRepoContext _pzRepoContext;
+        private readonly PZRepoContext _pzRepoContext;
 
-        public ReviewRepo(IPZRepoContext context)
+        public ReviewRepo(PZRepoContext context)
         {
             _pzRepoContext = context;
         }
         public Review GetById(int id)
         {
-            return _pzRepoContext.Reviews.First(x => x.revIndex == id);
+            return _pzRepoContext.Reviews.First(x => x.ReviewId == id);
         }
 
         public IEnumerable<Review> GetAll()
@@ -32,8 +32,16 @@ namespace PZRepositories
             _pzRepoContext.SaveChanges();
         }
 
-        public void UpdateReviews()
+        public void Remove(Review review)
         {
+            _pzRepoContext.Reviews.Remove(review);
+            _pzRepoContext.SaveChanges();
+        }
+
+        public void Update(Review review)
+        {
+            var r = _pzRepoContext.Reviews.Find(review.ReviewId);
+            _pzRepoContext.Entry(r).CurrentValues.SetValues(review);
             _pzRepoContext.SaveChanges();
         }
     }

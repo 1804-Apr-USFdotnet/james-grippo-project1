@@ -10,6 +10,8 @@ namespace PZRepositoryInterface
         Restaurant GetByName(string restaurant);
         IEnumerable<Restaurant> GetAll();
         void Add(Restaurant restaurant);
-        void UpdateRestaurants();
+        void Remove(Restaurant restaurant);
+        void Update(Restaurant restaurant);
+        void Update();
     }
 }
