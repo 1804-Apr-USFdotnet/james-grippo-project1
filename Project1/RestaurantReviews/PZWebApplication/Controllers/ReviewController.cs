@@ -57,15 +57,18 @@ namespace PZWebApplication.Controllers
         {
             try
             {
-                var index = applicationServices.GetReviewByID(id).Restaurant.RestaurantId;
+                var restaurant = applicationServices.GetReviewByID(id).Restaurant;
                 applicationServices.RemoveReview(id);
+                applicationServices.UpdateAverageRating(restaurant);
 
                 return RedirectToAction("Index", new RouteValueDictionary(
-                    new { controller = "Review", action = "Index", Id = index }));
+                    new { controller = "Review", action = "Index", Id = restaurant.RestaurantId }));
             }
             catch
             {
-                return View("Index");
+                var index = applicationServices.GetReviewByID(id).Restaurant.RestaurantId;
+                return RedirectToAction("Index", new RouteValueDictionary(
+                    new { controller = "Review", action = "Index", Id = index })); 
             }
         }
 
