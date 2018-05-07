@@ -54,7 +54,7 @@ namespace PZModels
 
         public string Address()
         {
-                return $"{Name}:  {Street}, {City}, {State}, {Zipcode}";
+                return $"{Name} ({AvgRating})  {Street}, {City}, {State}, {Zipcode}";
         }
 
         public void CalcAvgRating()

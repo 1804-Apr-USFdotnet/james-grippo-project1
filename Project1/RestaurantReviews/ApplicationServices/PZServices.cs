@@ -98,7 +98,7 @@ namespace ApplicationServices
 
         public void AddReview(Review review)
         {
-            Restaurant restaurant = GetRestaurantById(review.RestaurantId);
+            Restaurant restaurant = GetRestaurantById(review.Restaurant.RestaurantId);
             review.Restaurant = restaurant;
             _reviewService.AddReview(review);
 
@@ -116,6 +116,8 @@ namespace ApplicationServices
         public void UpdateReview(Review review)
         {
             _reviewService.UpdateReview(review);
+            review.Restaurant.CalcAvgRating();
+            _restaurantService.UpdateContext();
         }
     }
 }

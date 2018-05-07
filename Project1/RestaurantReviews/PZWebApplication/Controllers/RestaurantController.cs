@@ -41,7 +41,7 @@ namespace PZWebApplication.Controllers
             {
                 Debug.WriteLine("Not Working.");
                 // log some problem
-                return RedirectToAction("Index");
+                return View();
             }
         }
 
@@ -75,7 +75,7 @@ namespace PZWebApplication.Controllers
             }
             catch
             {
-                return RedirectToAction("Index");
+                return View(restaurant);
             }
         }
     }

@@ -27,19 +27,18 @@ namespace PZWebApplication.Controllers
 
         public ActionResult Create(int id)
         {
-            Review model = new Review()
-            {
-                RestaurantId = id
-            };
-            return View(model);
+            ViewBag.iD = id;
+            ViewBag.name = applicationServices.GetRestaurantById(id).Name;
+            return View();
         }
 
         // POST: Restaurants/Create
         [HttpPost]
-        public ActionResult Create(Review review)
+        public ActionResult Create(Review review, int id)
         {
             try
             {
+                review.Restaurant = applicationServices.GetRestaurantById(id);
                 applicationServices.AddReview(review);
                 // log that it worked
                 return RedirectToAction("Index");
@@ -48,7 +47,7 @@ namespace PZWebApplication.Controllers
             {
                 Debug.WriteLine("Not Working.");
                 // log some problem
-                return RedirectToAction("Index");
+                return View(review);
             }
         }
 
@@ -75,15 +74,16 @@ namespace PZWebApplication.Controllers
         [HttpPost]
         public ActionResult Edit(Review review)
         {
-            try
-            {
-                applicationServices.UpdateReview(review);
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            //try
+            //{
+            review.Restaurant = applicationServices.GetReviewByID(review.ReviewId).Restaurant;
+            applicationServices.UpdateReview(review);
+            return RedirectToAction("Index");
+            //}
+            //catch
+            //{
+            //    return View(review);
+            //}
         }
     }
 }

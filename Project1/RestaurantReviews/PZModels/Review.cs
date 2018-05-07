@@ -32,13 +32,11 @@ namespace PZModels
         [XmlElement("Rating")]
         public int Rating { get; set; }
 
-        public virtual int RestaurantId { get; set; }
-
         public virtual Restaurant Restaurant { get; set; }
 
         public override string ToString()
         {
-            return $"\nrevIndex: {ReviewId}\nRestaurantID: {RestaurantId}\nReviewer: {Reviewer}\nReview: {Description}\nRating: {Rating}\n";
+            return $"\nrevIndex: {ReviewId}\nReviewer: {Reviewer}\nReview: {Description}\nRating: {Rating}\n";
         }
 
         public string Details()

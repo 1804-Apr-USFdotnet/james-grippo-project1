@@ -37,7 +37,6 @@ namespace PZRepositories
                 Rating = 5,
                 Description = "Schwiftyyyyy!",
                 Reviewer = "Lil' Bobby",
-                RestaurantId = 1
             };
 
             Restaurant restaurant = new Restaurant

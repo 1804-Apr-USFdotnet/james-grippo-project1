@@ -16,9 +16,6 @@
         @Html.EditorFor(Model => Model.Name, new { htmlattributes = new { placeholder = "Name", required = "required" } })<br />
         @Html.ValidationMessageFor(Model => Model.Name)
 
-        @Html.LabelFor(Model => Model.FranchiseId);
-        @Html.EditorFor(Model => Model.FranchiseId, new { htmlattributes = new { placeholder = "FranchiseID", required = "required" } })<br />
-
         @Html.LabelFor(Model => Model.City);
         @Html.EditorFor(Model => Model.City, new { htmlattributes = new { placeholder = "City", required = "required" } }) <br />
 
