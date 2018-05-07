@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using ApplicationServices;
 using PZModels;
 
@@ -41,7 +42,8 @@ namespace PZWebApplication.Controllers
                 review.Restaurant = applicationServices.GetRestaurantById(id);
                 applicationServices.AddReview(review);
                 // log that it worked
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new RouteValueDictionary(
+                    new { controller = "Review", action = "Index", Id = id }));
             }
             catch
             {
@@ -55,9 +57,11 @@ namespace PZWebApplication.Controllers
         {
             try
             {
+                var index = applicationServices.GetReviewByID(id).Restaurant.RestaurantId;
                 applicationServices.RemoveReview(id);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new RouteValueDictionary(
+                    new { controller = "Review", action = "Index", Id = index }));
             }
             catch
             {
@@ -74,16 +78,17 @@ namespace PZWebApplication.Controllers
         [HttpPost]
         public ActionResult Edit(Review review)
         {
-            //try
-            //{
-            review.Restaurant = applicationServices.GetReviewByID(review.ReviewId).Restaurant;
-            applicationServices.UpdateReview(review);
-            return RedirectToAction("Index");
-            //}
-            //catch
-            //{
-            //    return View(review);
-            //}
+            try
+            {
+                review.Restaurant = applicationServices.GetReviewByID(review.ReviewId).Restaurant;
+                applicationServices.UpdateReview(review);
+                return RedirectToAction("Index", new RouteValueDictionary(
+                    new { controller = "Review", action = "Index", Id = review.Restaurant.RestaurantId }));
+            }
+            catch
+            {
+                return View(review);
+            }
         }
     }
 }

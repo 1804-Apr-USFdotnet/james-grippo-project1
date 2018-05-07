@@ -32,6 +32,7 @@ namespace PZModels
         [XmlElement("Rating")]
         public int Rating { get; set; }
 
+        [Required]
         public virtual Restaurant Restaurant { get; set; }
 
         public override string ToString()

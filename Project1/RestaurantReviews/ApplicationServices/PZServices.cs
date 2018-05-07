@@ -55,14 +55,10 @@ namespace ApplicationServices
             return _reviewService.ReviewsByRestaurantId(r.RestaurantId);
         }
 
-        public void UpdateAverageRating()
+        public void UpdateAverageRating(Restaurant restaurant)
         {
-            List<Restaurant> restList = GetAllRestaurants();
-            foreach (Restaurant r in restList)
-            {
-                List<Review> restReviews = _reviewService.ReviewsByRestaurantId(r.RestaurantId);
-                r.CalcAvgRating();
-            }
+            restaurant.CalcAvgRating();
+            _restaurantService.UpdateContext();
         }
 
         public List<Restaurant> GetTopThreeRestaurants()
@@ -88,6 +84,7 @@ namespace ApplicationServices
         public void RemoveRestaurant(int id)
         {
             Restaurant r = GetRestaurantById(id);
+            //RemoveAllReviews(r.Reviews);
             _restaurantService.RemoveRestaurant(r);
         }
 
@@ -111,6 +108,12 @@ namespace ApplicationServices
         {
             Review r = GetReviewByID(id);
             _reviewService.RemoveReview(r);
+        }
+
+        public void RemoveAllReviews(ICollection<Review> reviews)
+        {
+            foreach( Review review in reviews)
+                RemoveReview(review.ReviewId);
         }
 
         public void UpdateReview(Review review)

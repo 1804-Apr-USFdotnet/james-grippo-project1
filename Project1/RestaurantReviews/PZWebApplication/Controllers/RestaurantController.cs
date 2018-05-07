@@ -55,7 +55,7 @@ namespace PZWebApplication.Controllers
             }
             catch
             {
-                return View("Index");
+                return RedirectToAction("Index");
             }
         }
 
@@ -70,7 +70,10 @@ namespace PZWebApplication.Controllers
         {
             try
             {
+                restaurant.Reviews = applicationServices.GetRestaurantById(restaurant.RestaurantId).Reviews;
+                applicationServices.UpdateAverageRating(restaurant);
                 applicationServices.UpdateRestaurant(restaurant);
+
                 return RedirectToAction("Index");
             }
             catch

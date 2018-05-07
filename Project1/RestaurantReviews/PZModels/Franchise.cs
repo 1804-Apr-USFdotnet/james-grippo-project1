@@ -27,7 +27,7 @@ namespace PZModels
         [XmlElement("Genre")]
         public string Genre { get; set; }
 
-        public virtual ICollection<Restaurant> Restaurants { get; set; }
+        //public virtual ICollection<Restaurant> Restaurants { get; set; }
 
         public override string ToString() => $"Name: {Name}\nGenre: {Genre}\n";
 

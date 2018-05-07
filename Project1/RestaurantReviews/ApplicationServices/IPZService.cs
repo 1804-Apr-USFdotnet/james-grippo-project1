@@ -14,7 +14,7 @@ namespace ApplicationServices
         Restaurant GetRestaurantById(int id);
         Restaurant GetRestaurantByName(string name);
         List<Review> GetAllReviewsForRestaurant(string restaurant);
-        void UpdateAverageRating();
+        void UpdateAverageRating(Restaurant restaurant);
         List<Restaurant> GetTopThreeRestaurants();
         List<Restaurant> GetRestaurantsByOrder(string order);
         List<Restaurant> GetRestaurantBySearch(string search);
@@ -23,6 +23,7 @@ namespace ApplicationServices
         void UpdateRestaurant(Restaurant restaurant);
         void AddReview(Review review);
         void RemoveReview(int id);
+        void RemoveAllReviews(ICollection<Review> reviews);
         void UpdateReview(Review review);
     }
 }
