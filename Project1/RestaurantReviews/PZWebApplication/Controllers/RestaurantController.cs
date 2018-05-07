@@ -13,6 +13,7 @@ namespace PZWebApplication.Controllers
     public class RestaurantController : Controller
     {
         private readonly PZServices applicationServices = new PZServices();
+
         public ActionResult Index(string search)
         {
             if (!String.IsNullOrEmpty(search))
