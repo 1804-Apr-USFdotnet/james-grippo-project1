@@ -107,7 +107,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
-    <Content Include="Views\Restaurant\Details.cshtml" />
     <Content Include="Views\Restaurant\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -127,13 +126,15 @@
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Restaurant\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Restaurant\Create.cshtml" />
     <Content Include="Views\Review\Index.cshtml" />
     <Content Include="Views\Review\Details.cshtml" />
     <Content Include="Views\Review\Edit.cshtml" />
     <Content Include="Views\Review\Create.cshtml" />
+    <Content Include="Views\Restaurant\Index.cshtml" />
+    <Content Include="Views\Restaurant\Details.cshtml" />
+    <Content Include="Views\Restaurant\View.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

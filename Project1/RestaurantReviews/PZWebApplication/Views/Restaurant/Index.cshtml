@@ -1,35 +1,64 @@
-﻿@using PZModels
-@model IEnumerable<PZModels.Restaurant>
+﻿@model IEnumerable<PZModels.Restaurant>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div>
-        <table style="border:2px solid; border-collapse:collapse">
-            <thead>
-                <tr>
-                    <th>Name </th>
-                    <th>Address </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var rest in Model)
-            {
-                <tr style="border:2px solid black">
-                    <td>@rest.Address()</td>
-                    <td>@Html.ActionLink("Details", "Details", new { id = rest.RestaurantId })</td>
-                    <td>@Html.ActionLink("Delete", "Delete", new { id = rest.RestaurantId })</td>
-                    <td>@Html.ActionLink("Edit", "Edit", new { id = rest.RestaurantId })</td>
-                    <td>@Html.ActionLink("Reviews", "Index", "Review", new {id = rest.RestaurantId}, null)</td>
-                </tr>
-        }
-            </tbody>
-        </table>
-        @Html.ActionLink("Create", "Create", null, htmlAttributes: new { @class = "btn btn-secondary btn-block p-1 m-1" })
-    </div>
-</body>
-</html>
+@{
+    ViewBag.Title = "Restaurants";
+}
+
+<h2>View</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zipcode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Street)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AvgRating)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zipcode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Street)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AvgRating)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.RestaurantId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.RestaurantId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.RestaurantId }) |
+            @Html.ActionLink("Reviews", "Index", "Review", new { id = item.RestaurantId }, null)
+        </td>
+    </tr>
+}
+
+</table>
