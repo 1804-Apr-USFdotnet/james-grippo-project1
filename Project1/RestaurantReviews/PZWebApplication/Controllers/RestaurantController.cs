@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using ApplicationServices;
 using PZModels;
 
@@ -14,7 +15,22 @@ namespace PZWebApplication.Controllers
         private readonly PZServices applicationServices = new PZServices();
         public ActionResult Index()
         {
-            return View(applicationServices.GetAllRestaurants());
+            if (TempData["restaurants"] == null)
+            {
+                return View(applicationServices.GetAllRestaurants());
+            }
+            else
+            {
+                return View(TempData["restaurants"]);
+            }
+
+        }
+
+        public ActionResult OrderBy(string order)
+        {
+            var restaurants = applicationServices.GetRestaurantsByOrder(order);
+            TempData["restaurants"] = restaurants;
+            return RedirectToAction("Index");
         }
 
         public ActionResult Details(int id)

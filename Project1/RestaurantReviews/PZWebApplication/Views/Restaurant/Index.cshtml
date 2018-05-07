@@ -4,10 +4,20 @@
     ViewBag.Title = "Restaurants";
 }
 
-<h2>View</h2>
+<h2>Restaurants</h2>
+
+<form>
+    <p>
+        Title: <input type="text" name="SearchString">
+        <input type="submit" value="Filter" />
+    </p>
+</form>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create") |
+    @Html.ActionLink("Order by Name", "OrderBy", new { order = "Name" }) |
+    @Html.ActionLink("Order by City", "OrderBy", new { order = "City" }) |
+    @Html.ActionLink("Order by Rating", "OrderBy", new { order = "Rating" }) |
 </p>
 <table class="table">
     <tr>
