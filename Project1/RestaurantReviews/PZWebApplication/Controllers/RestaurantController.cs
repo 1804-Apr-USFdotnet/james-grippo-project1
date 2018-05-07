@@ -13,17 +13,30 @@ namespace PZWebApplication.Controllers
     public class RestaurantController : Controller
     {
         private readonly PZServices applicationServices = new PZServices();
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
-            if (TempData["restaurants"] == null)
-            {
-                return View(applicationServices.GetAllRestaurants());
-            }
-            else
-            {
-                return View(TempData["restaurants"]);
-            }
+            if (!String.IsNullOrEmpty(search))
+                return View(applicationServices.GetRestaurantBySearch(search));
 
+            if (TempData["restaurants"] == null)
+                return View(applicationServices.GetAllRestaurants());
+
+            return View(TempData["restaurants"]);
+
+
+        }
+
+        public ActionResult TopThree()
+        {
+            TempData["restaurants"] = applicationServices.GetTopThreeRestaurants();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult SearchBy(string search)
+        {
+            var restaurants = applicationServices.GetRestaurantBySearch(search);
+            TempData["restaurants"] = restaurants;
+            return RedirectToAction("Index");
         }
 
         public ActionResult OrderBy(string order)
