@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantReviews", "RestaurantReviews\RestaurantReviews.csproj", "{909065A1-27E2-410B-835C-89481B2F7B22}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{61A3D273-FE7D-443E-A381-6B01220C013E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PZModels", "PZModels\PZModels.csproj", "{872C9A72-9017-4535-9D09-15B7A2084292}"
@@ -50,10 +48,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{909065A1-27E2-410B-835C-89481B2F7B22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{909065A1-27E2-410B-835C-89481B2F7B22}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{909065A1-27E2-410B-835C-89481B2F7B22}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{909065A1-27E2-410B-835C-89481B2F7B22}.Release|Any CPU.Build.0 = Release|Any CPU
 		{872C9A72-9017-4535-9D09-15B7A2084292}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{872C9A72-9017-4535-9D09-15B7A2084292}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{872C9A72-9017-4535-9D09-15B7A2084292}.Release|Any CPU.ActiveCfg = Release|Any CPU
