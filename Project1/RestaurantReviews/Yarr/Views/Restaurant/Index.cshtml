@@ -4,70 +4,60 @@
     string @search;
 }
 
-<h2>Restaurants</h2>
+<div class="mx-auto" style="background: darkred">
+    <h3 align="center" style="color:ghostwhite">Restaurants:</h3>
+</div>
 
-<p>
-    @using (Html.BeginForm("Index", "Restaurant", FormMethod.Get))
-    {
-    <p>
-        Title: @Html.TextBox("search", null, new { @class = "form-control", @placeholder = "Search for..." })
-        <span class="input-group-btn">
-            <button class="btn btn-search" type="button"><i class="fa fa-search fa-fw"></i> Search</button>
-        </span>
-    </p>
-}
-    </p>
+<div class="p-3" align="center">
+    @Html.ActionLink("Create New", "Create", "Restaurant", null, new { @class = "btn btn-outline-primary" })
+    @Html.ActionLink("Order by Name", "OrderBy", new { order = "Name" }, new { @class = "btn btn-outline-dark" })
+    @Html.ActionLink("Order by City", "OrderBy", new { order = "City" }, new { @class = "btn btn-outline-dark" })
+    @Html.ActionLink("Order by Rating", "OrderBy", new { order = "Rating" }, new { @class = "btn btn-outline-dark" })
+    @Html.ActionLink("Top Three Restaurants", "TopThree", "Restaurant", null, new { @class = "btn btn-outline-dark" })
+</div>
 
-    <p>
-        @Html.ActionLink("Create New", "Create", "Restaurant", null, new { @class = "btn btn-primary", @style = "color:primary" })
-        @Html.ActionLink("Order by Name", "OrderBy", new { order = "Name" }, new { @class = "btn btn-outline-info", @style = "color:info" })
-        @Html.ActionLink("Order by City", "OrderBy", new { order = "City" }, new { @class = "btn btn-info", @style = "color:info" })
-        @Html.ActionLink("Order by Rating", "OrderBy", new { order = "Rating" }, new { @class = "btn btn-info", @style = "color:info" })
-        @Html.ActionLink("Top Three Restaurants", "TopThree", "Restaurant", null, new { @class = "btn btn-info", @style = "color:info" })
-    </p>
-
-    <table class="table">
-        <thead class="thead-dark">
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Name) </th>
+            <th>@Html.DisplayNameFor(model => model.City)</th>
+            <th>@Html.DisplayNameFor(model => model.Zipcode)</th>
+            <th>@Html.DisplayNameFor(model => model.State)</th>
+            <th>@Html.DisplayNameFor(model => model.Street)</th>
+            <th>@Html.DisplayNameFor(model => model.AvgRating)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
             <tr>
-                <th>@Html.DisplayNameFor(model => model.Name) </th>
-                <th>@Html.DisplayNameFor(model => model.City)</th>
-                <th>@Html.DisplayNameFor(model => model.Zipcode)</th>
-                <th>@Html.DisplayNameFor(model => model.State)</th>
-                <th>@Html.DisplayNameFor(model => model.Street)</th>
-                <th>@Html.DisplayNameFor(model => model.AvgRating)</th>
-                <th></th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Zipcode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.State)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Street)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AvgRating)
+                </td>
+                <td align="right">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.RestaurantId }, new { @class = "btn btn-outline-success btn-sm" })
+                    @Html.ActionLink("Details", "Details", new { id = item.RestaurantId }, new { @class = "btn btn-outline-info btn-sm" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.RestaurantId }, new { @class = "btn btn-outline-danger btn-sm" })
+                    @Html.ActionLink("Reviews", "Index", "Review", new { id = item.RestaurantId }, new { @class = "btn btn-outline-light btn-sm" })
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.City)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Zipcode)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.State)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Street)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.AvgRating)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.RestaurantId }, new {@class = "btn btn-success btn-sm"}) 
-                        @Html.ActionLink("Details", "Details", new { id = item.RestaurantId }, new { @class = "btn btn-warning btn-sm" }) 
-                        @Html.ActionLink("Delete", "Delete", new { id = item.RestaurantId }, new { @class = "btn btn-danger btn-sm" }) 
-                        @Html.ActionLink("Reviews", "Index", "Review", new { id = item.RestaurantId }, new { @class = "btn btn-info btn-sm" })
-                    </td>
-                </tr>
-            }
-        </tbody>
+        }
+    </tbody>
 
-    </table>
+</table>

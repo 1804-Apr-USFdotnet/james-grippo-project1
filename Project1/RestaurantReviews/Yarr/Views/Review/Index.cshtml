@@ -4,13 +4,15 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="mx-auto" style="background: darkgoldenrod">
+    <h3 align="center" style="color:ghostwhite">@ViewBag.name's Reviews:</h3>
+</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create", new { id = ViewBag.iD })
-    @Html.ActionLink("List of Restaurants", "Index", "Restaurant", null, null)
-</p>
-<table class="table">
+<div class="p-3" align="center">
+    @Html.ActionLink("Create New", "Create", "Review", new { id = ViewBag.iD }, new {@class="btn btn-outline-primary"})
+    @Html.ActionLink("List of Restaurants", "Index", "Restaurant", null, new {@class="btn btn-outline-secondary"})
+</div>
+<table class="table table-striped table-dark">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Reviewer)
@@ -35,10 +37,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Rating)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.ReviewId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.ReviewId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.ReviewId })
+            <td align="right">
+                @Html.ActionLink("Edit", "Edit", new { id=item.ReviewId }, new {@class="btn btn-outline-success"}) 
+                @Html.ActionLink("Details", "Details", new { id=item.ReviewId }, new {@class="btn btn-outline-info"}) 
+                @Html.ActionLink("Delete", "Delete", new { id=item.ReviewId }, new{@class="btn btn-outline-danger"})
             </td>
         </tr>
     }
