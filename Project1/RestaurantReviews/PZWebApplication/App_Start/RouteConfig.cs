@@ -18,7 +18,7 @@ namespace PZWebApplication
                 url: "{controller}/{action}/{id}",
                 defaults: new
                 {
-                    controller = "Restaurants",
+                    controller = "Home",
                     action = "Index",
                     id = UrlParameter.Optional
                 }
