@@ -35,7 +35,7 @@ namespace Yarr.Tests.Controllers
             ViewResult result = controller.About() as ViewResult;
 
             // Assert
-            Assert.AreEqual("Your application description page.", result.ViewBag.Message);
+            Assert.AreEqual("Yarr stands for Yet Another Restaurant Reviewer.", result.ViewBag.Message);
         }
 
         [TestMethod]

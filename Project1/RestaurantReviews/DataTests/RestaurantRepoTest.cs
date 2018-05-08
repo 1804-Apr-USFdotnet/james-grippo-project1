@@ -14,7 +14,7 @@ namespace DataTests
     [TestClass]
     public class RestaurantRepoTest
     {
-        private readonly Mock<IPZRepoContext> _moqContext;
+        private readonly Mock<PZRepoContext> _moqContext;
         private readonly Mock<DbSet<Restaurant>> _moqSet;
 
         private readonly Restaurant r;
@@ -22,7 +22,7 @@ namespace DataTests
 
         public RestaurantRepoTest()
         {
-            _moqContext = new Mock<IPZRepoContext>();
+            _moqContext = new Mock<PZRepoContext>();
             _moqSet = new Mock<DbSet<Restaurant>>();
 
             _moqContext.Setup(m => m.Restaurants).Returns(_moqSet.Object);

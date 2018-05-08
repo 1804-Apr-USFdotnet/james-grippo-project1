@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
@@ -36,13 +37,19 @@ namespace Yarr.Controllers
 
         // POST: Restaurants/Create
         [HttpPost]
-        public ActionResult Create(Review review, int id)
+        public ActionResult Create([Bind(Include = "Reviewer, Description, Rating, Restaurant")] Review review, int id)
         {
             try
             {
-                if (ModelState.IsValid)
+                review.Restaurant = applicationServices.GetRestaurantById(id);
+                ValidationContext context = new ValidationContext(review, null, null);
+                List<ValidationResult> results = new List<ValidationResult>();
+
+                bool valid = Validator.TryValidateObject(review, context, results, true);
+
+
+                if (valid)
                 {
-                    review.Restaurant = applicationServices.GetRestaurantById(id);
                     applicationServices.AddReview(review);
                     // log that it worked
                     return RedirectToAction("Index", new RouteValueDictionary(
@@ -50,6 +57,7 @@ namespace Yarr.Controllers
                 }
                 else
                     return HttpNotFound();
+
             }
             catch
             {
@@ -63,17 +71,12 @@ namespace Yarr.Controllers
         {
             try
             {
-                if (ModelState.IsValid)
-                {
-                    var restaurant = applicationServices.GetReviewByID(id).Restaurant;
-                    applicationServices.RemoveReview(id);
-                    applicationServices.UpdateAverageRating(restaurant);
+                var restaurant = applicationServices.GetReviewByID(id).Restaurant;
+                applicationServices.RemoveReview(id);
+                applicationServices.UpdateAverageRating(restaurant);
 
-                    return RedirectToAction("Index", new RouteValueDictionary(
-                        new {controller = "Review", action = "Index", Id = restaurant.RestaurantId}));
-                }
-                else
-                    return HttpNotFound();
+                return RedirectToAction("Index", new RouteValueDictionary(
+                    new { controller = "Review", action = "Index", Id = restaurant.RestaurantId }));
             }
             catch
             {
@@ -94,12 +97,12 @@ namespace Yarr.Controllers
         {
             try
             {
+                review.Restaurant = applicationServices.GetReviewByID(review.ReviewId).Restaurant;
                 if (ModelState.IsValid)
                 {
-                    review.Restaurant = applicationServices.GetReviewByID(review.ReviewId).Restaurant;
                     applicationServices.UpdateReview(review);
                     return RedirectToAction("Index", new RouteValueDictionary(
-                        new {controller = "Review", action = "Index", Id = review.Restaurant.RestaurantId}));
+                        new { controller = "Review", action = "Index", Id = review.Restaurant.RestaurantId }));
                 }
                 else
                     return HttpNotFound();

@@ -25,46 +25,43 @@ namespace ServicesUnitTests
             {
                 new Restaurant
                 {
-                    rIndex = 1,
-                    FranchiseID = 1,
+                    RestaurantId = 1,
                     Name = "ZestRestaurant",
                     City = "Zcity",
                     Zipcode = "90801",
                     State = "ZNY",
-                    Address = "Z 1 a",
+                    Street = "Z 1 a",
                     AvgRating = 6.9
                 },
                 new Restaurant
                 {
-                    rIndex = 2,
-                    FranchiseID = 2,
+                    RestaurantId = 2,
                     Name = "TestRestaurant2",
                     City = "city2",
                     Zipcode = "10802",
                     State = "NY",
-                    Address = " 2 a",
+                    Street = " 2 a",
                     AvgRating = 7.9
                 },
                 new Restaurant
                 {
-                    rIndex = 3,
-                    FranchiseID = 3,
+                    RestaurantId = 3,
+
                     Name = "TestRestaurant3",
                     City = "city3",
                     Zipcode = "10803",
                     State = "NY",
-                    Address = " 3 a",
+                    Street = " 3 a",
                     AvgRating = 8.9
                 },
                 new Restaurant
                 {
-                    rIndex = 4,
-                    FranchiseID = 4,
+                    RestaurantId = 4,
                     Name = "TestRestaurant4",
                     City = "city4",
                     Zipcode = "10804",
                     State = "NY",
-                    Address = " 4 a",
+                    Street = " 4 a",
                     AvgRating = 9.9
                 }
             };
@@ -158,7 +155,7 @@ namespace ServicesUnitTests
             var service = new RestaurantService(_moqRepo.Object);
             var rList = service.GetRestaurantsByOrder("AdDress");
 
-            CollectionAssert.AreEqual(rList, _moqRepo.Object.GetAll().OrderBy(x => x.Address).ToList());
+            CollectionAssert.AreEqual(rList, _moqRepo.Object.GetAll().OrderBy(x => x.Street).ToList());
         }
 
         [TestMethod]
@@ -203,13 +200,12 @@ namespace ServicesUnitTests
             var service = new RestaurantService(_moqRepo.Object);
             var r = new Restaurant
             {
-                rIndex = 5,
-                FranchiseID = 5,
+                RestaurantId = 5,
                 Name = "TestRestaurant5",
                 City = "city5",
                 Zipcode = "10804",
                 State = "NY",
-                Address = " 5 a",
+                Street = " 5 a",
                 AvgRating = 9.9
             };
 

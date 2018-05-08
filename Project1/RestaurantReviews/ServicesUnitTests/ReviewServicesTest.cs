@@ -21,36 +21,78 @@ namespace ServicesUnitTests
             _moqRepo = new Mock<IReviewRepo>();
             _moqRepo.Setup(m => m.Add(It.IsAny<Review>()));
 
+            Restaurant r1 = new Restaurant()
+            {
+                RestaurantId = 1,
+                Name = "TestRestaurant4",
+                City = "city4",
+                Zipcode = "10804",
+                State = "NY",
+                Street = " 4 a",
+                AvgRating = 9.9
+            };
+
+            Restaurant r2 = new Restaurant()
+            {
+                RestaurantId = 2,
+                Name = "TestRestaurant4",
+                City = "city4",
+                Zipcode = "10804",
+                State = "NY",
+                Street = " 4 a",
+                AvgRating = 9.9
+            };
+            Restaurant r3 = new Restaurant()
+            {
+                RestaurantId = 3,
+                Name = "TestRestaurant4",
+                City = "city4",
+                Zipcode = "10804",
+                State = "NY",
+                Street = " 4 a",
+                AvgRating = 9.9
+            };
+            Restaurant r4 = new Restaurant()
+            {
+                RestaurantId = 4,
+                Name = "TestRestaurant4",
+                City = "city4",
+                Zipcode = "10804",
+                State = "NY",
+                Street = " 4 a",
+                AvgRating = 9.9
+            };
+
             reviews = new List<Review>()
             {
                 new Review
                 {
-                    revIndex = 1,
-                    RestaurantID = 1,
+                    ReviewId = 1,
+                    Restaurant = r1,
                     Reviewer = "ZestReview",
                     Description = "Zcity",
                     Rating = 5
                 },
                 new Review
                 {
-                    revIndex = 2,
-                    RestaurantID = 2,
+                    ReviewId = 2,
+                    Restaurant = r2,
                     Reviewer = "ZestReview",
                     Description = "Zcity",
                     Rating = 4
                 },
                 new Review
                 {
-                    revIndex = 3,
-                    RestaurantID = 3,
+                    ReviewId = 3,
+                    Restaurant = r3,
                     Reviewer = "ZestReview",
                     Description = "Zcity",
                     Rating = 3
                 },
                 new Review
                 {
-                    revIndex = 4,
-                    RestaurantID = 4,
+                    ReviewId = 4,
+                    Restaurant = r4,
                     Reviewer = "ZestReview",
                     Description = "Zcity",
                     Rating = 9
@@ -80,11 +122,22 @@ namespace ServicesUnitTests
         [TestMethod]
         public void Add_PassedAReview_CallsAdd()
         {
+            Restaurant r1 = new Restaurant()
+            {
+                RestaurantId = 1,
+                Name = "TestRestaurant4",
+                City = "city4",
+                Zipcode = "10804",
+                State = "NY",
+                Street = " 4 a",
+                AvgRating = 9.9
+            };
+
             var service = new ReviewService(_moqRepo.Object);
             var r = new Review
             {
-                revIndex = 5,
-                RestaurantID = 1,
+                ReviewId = 5,
+                Restaurant = r1,
                 Reviewer = "ZestReview",
                 Description = "Zcity",
                 Rating = 5
@@ -100,7 +153,7 @@ namespace ServicesUnitTests
             var service = new ReviewService(_moqRepo.Object);
             var reviews = service.ReviewsByRestaurantId(1);
 
-            CollectionAssert.AreEqual(reviews, _moqRepo.Object.GetAll().Where(x => x.RestaurantID == 1).ToList());
+            CollectionAssert.AreEqual(reviews, _moqRepo.Object.GetAll().Where(x => x.Restaurant.RestaurantId == 1).ToList());
         }
     }
 }
