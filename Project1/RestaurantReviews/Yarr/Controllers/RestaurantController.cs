@@ -60,23 +60,23 @@ namespace Yarr.Controllers
         [HttpPost]
         public ActionResult Create(Restaurant restaurant)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
+                try
                 {
                     applicationServices.AddRestaurant(restaurant);
                     // log that it worked
                     return RedirectToAction("Index");
                 }
-                else
+                catch
                 {
+                    Debug.WriteLine("Not Working.");
+                    // log some problem
                     return HttpNotFound();
                 }
             }
-            catch
+            else
             {
-                Debug.WriteLine("Not Working.");
-                // log some problem
                 return View();
             }
         }
@@ -105,6 +105,30 @@ namespace Yarr.Controllers
         [HttpPost]
         public ActionResult Edit(Restaurant restaurant)
         {
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    restaurant.Reviews = applicationServices.GetRestaurantById(restaurant.RestaurantId).Reviews;
+                    applicationServices.UpdateAverageRating(restaurant);
+                    applicationServices.UpdateRestaurant(restaurant);
+
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    Debug.WriteLine("Not Working.");
+                    // log some problem
+                    return HttpNotFound();
+                }
+            }
+            else
+            {
+                return View();
+            }
+
+
             try
             {
                 if (ModelState.IsValid)

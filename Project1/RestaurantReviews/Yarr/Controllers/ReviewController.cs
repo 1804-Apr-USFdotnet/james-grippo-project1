@@ -56,14 +56,14 @@ namespace Yarr.Controllers
                         new {controller = "Review", action = "Index", Id = id}));
                 }
                 else
-                    return HttpNotFound();
+                    return View(review);
 
             }
             catch
             {
                 Debug.WriteLine("Not Working.");
                 // log some problem
-                return View(review);
+                return HttpNotFound();
             }
         }
         //[Authorize("Admin")]
@@ -93,23 +93,30 @@ namespace Yarr.Controllers
 
         // POST: Restaurants/Edit/5
         [HttpPost]
-        public ActionResult Edit(Review review)
+        public ActionResult Edit(Review review, int id)
         {
             try
             {
-                review.Restaurant = applicationServices.GetReviewByID(review.ReviewId).Restaurant;
-                if (ModelState.IsValid)
+                review.Restaurant = applicationServices.GetReviewByID(id).Restaurant;
+                ValidationContext context = new ValidationContext(review, null, null);
+                List<ValidationResult> results = new List<ValidationResult>();
+
+                bool valid = Validator.TryValidateObject(review, context, results, true);
+
+
+                if (valid)
                 {
                     applicationServices.UpdateReview(review);
+                    // log that it worked
                     return RedirectToAction("Index", new RouteValueDictionary(
                         new { controller = "Review", action = "Index", Id = review.Restaurant.RestaurantId }));
                 }
                 else
-                    return HttpNotFound();
+                    return View(review);
             }
             catch
             {
-                return View(review);
+                return HttpNotFound();
             }
         }
     }
