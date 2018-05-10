@@ -127,26 +127,6 @@ namespace Yarr.Controllers
             {
                 return View();
             }
-
-
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    restaurant.Reviews = applicationServices.GetRestaurantById(restaurant.RestaurantId).Reviews;
-                    applicationServices.UpdateAverageRating(restaurant);
-                    applicationServices.UpdateRestaurant(restaurant);
-
-                    return RedirectToAction("Index");
-                }
-                else
-                    return HttpNotFound();
-
-            }
-            catch
-            {
-                return View(restaurant);
-            }
         }
     }
 }

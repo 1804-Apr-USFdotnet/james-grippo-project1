@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using IPZServices;
 using PZModels;
-using PZRepositoryInterface;
 using System.Text.RegularExpressions;
+using PZRepositories;
 
 namespace PZServices
 {

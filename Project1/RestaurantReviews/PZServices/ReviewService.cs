@@ -1,11 +1,7 @@
-﻿using System;
+﻿using PZModels;
+using PZRepositories;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using IPZServices;
-using PZModels;
-using PZRepositoryInterface;
 
 namespace PZServices
 {

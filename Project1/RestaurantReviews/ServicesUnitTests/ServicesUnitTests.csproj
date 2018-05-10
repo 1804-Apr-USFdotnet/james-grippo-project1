@@ -70,10 +70,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IPZServices\IPZServices.csproj">
-      <Project>{0ed58a0f-f4df-436f-b435-3789f0a78f98}</Project>
-      <Name>IPZServices</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PZModels\PZModels.csproj">
       <Project>{872c9a72-9017-4535-9d09-15b7a2084292}</Project>
       <Name>PZModels</Name>
@@ -81,10 +77,6 @@
     <ProjectReference Include="..\PZRepositories\PZRepositories.csproj">
       <Project>{0a4af450-cd7b-4a21-9623-d320c43b507d}</Project>
       <Name>PZRepositories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PZRepositoryInterface\PZRepositoryInterface.csproj">
-      <Project>{feadc998-84e0-4c1d-bb83-33a7a1eb787f}</Project>
-      <Name>PZRepositoryInterface</Name>
     </ProjectReference>
     <ProjectReference Include="..\PZServices\PZServices.csproj">
       <Project>{308f0ae1-3879-4e3f-8a4a-8d745a140d55}</Project>

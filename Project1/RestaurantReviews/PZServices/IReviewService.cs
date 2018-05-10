@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using PZModels;
+
+namespace PZServices
+{
+    public interface IReviewService
+    {
+        List<Review> AllReviews();
+        Review ReviewById(int id);
+        List<Review> ReviewsByRestaurantId(int id);
+        void AddReview(Review review);
+        void RemoveReview(Review review);
+        void UpdateReview(Review review);
+    }
+}

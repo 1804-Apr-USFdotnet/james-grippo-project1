@@ -62,22 +62,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FranchiseService.cs" />
+    <Compile Include="IFranchiseService.cs" />
+    <Compile Include="IRestaurantService.cs" />
+    <Compile Include="IReviewService.cs" />
     <Compile Include="RestaurantService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReviewService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IPZServices\IPZServices.csproj">
-      <Project>{0ed58a0f-f4df-436f-b435-3789f0a78f98}</Project>
-      <Name>IPZServices</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PZModels\PZModels.csproj">
       <Project>{872c9a72-9017-4535-9d09-15b7a2084292}</Project>
       <Name>PZModels</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PZRepositoryInterface\PZRepositoryInterface.csproj">
-      <Project>{feadc998-84e0-4c1d-bb83-33a7a1eb787f}</Project>
-      <Name>PZRepositoryInterface</Name>
+    <ProjectReference Include="..\PZRepositories\PZRepositories.csproj">
+      <Project>{0A4AF450-CD7B-4A21-9623-D320C43B507D}</Project>
+      <Name>PZRepositories</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
