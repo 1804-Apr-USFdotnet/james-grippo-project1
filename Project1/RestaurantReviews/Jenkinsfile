@@ -21,9 +21,9 @@ node('master') {
     stage('analyze') {
         try {
             dir('Project1/RestaurantReviews') {
-                bat 'SonarQube.Scanner.MSBuild begin /k:Yarr /v:0.1.0'
-                bat 'msbuild /t:rebuild'
-                bat 'SonarQube.Scanner.MSBuild end'
+                //bat 'SonarQube.Scanner.MSBuild begin /k:Yarr /v:0.1.0'
+                //bat 'msbuild /t:rebuild'
+                //bat 'SonarQube.Scanner.MSBuild end'
             }
         }
         catch (exc) {
