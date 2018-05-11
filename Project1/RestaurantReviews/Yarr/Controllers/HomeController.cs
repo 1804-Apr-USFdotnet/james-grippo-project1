@@ -15,7 +15,7 @@ namespace Yarr.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Yarr stands for Yet Another Restaurant Reviewer.";
+            ViewBag.Message = "Yarr stands for Yet Another Restaurant Reviewer. Woo";
 
             return View();
         }
