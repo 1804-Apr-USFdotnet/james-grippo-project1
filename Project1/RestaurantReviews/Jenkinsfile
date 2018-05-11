@@ -1,0 +1,57 @@
+node('master') {
+    stage('import') {
+        git 'https://github.com/1804-Apr-USFdotnet/james-grippo-project1.git'
+    }
+    stage('build') {
+        dir('Project1/RestaurantReviews') {
+            bat 'nuget restore'
+            bat 'msbuild'
+        }
+    }
+    stage('test') {
+        try {
+            dir('Project1/RestaurantReviews') {
+                bat "VSTest.Console ServicesUnitTests\\bin\\Debug\\ServicesUnitTests.dll"
+            }
+        }
+        catch (exc) {
+            throw exc
+        }
+    }
+    stage('analyze') {
+        try {
+            dir('Project1/RestaurantReviews') {
+                bat 'SonarQube.Scanner.MSBuild begin /k:Yarr /v:0.1.0'
+                bat 'msbuild /t:rebuild'
+                bat 'SonarQube.Scanner.MSBuild end'
+            }
+        }
+        catch (exc) {
+            throw exc
+        }
+    }
+    stage('package') {
+        try {
+            dir('Project1/RestaurantReviews') {
+                dir('Yarr') {
+                    bat 'msbuild /t:package'
+                }
+            }
+        }
+        catch (exc) {
+            throw exc
+        }
+    }
+    stage('deploy') {
+        try {
+            dir('Project1/RestaurantReviews') {
+                dir('Yarr/obj/Debug/Package') {
+                    bat "\"C:\\Program Files\\IIS\\Microsoft Web Deploy V3\\msdeploy.exe\" -source:package='C:\\Program Files (x86)\\Jenkins\\workspace\\Project-1\\Project1\\RestaurantReviews\\Yarr\\obj\\Debug\\Package\\Yarr.zip' -dest:auto,computerName=\"https://ec2-18-220-51-28.us-east-2.compute.amazonaws.com:8172/msdeploy.axd\",userName=\"Administrator\",password=\"${env.Deploy_Password}\",authtype=\"basic\",includeAcls=\"False\" -verb:sync -disableLink:AppPoolExtension -disableLink:ContentExtension -disableLink:CertificateExtension -setParamFile:\"C:\\Program Files (x86)\\Jenkins\\workspace\\Project-1\\Project1\\RestaurantReviews\\Yarr\\obj\\Debug\\Package\\Yarr.SetParameters.xml\" -AllowUntrusted=True"
+                }
+            }
+        }
+        catch (exc) {
+            throw exc
+        }
+    }
+}
